@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <form id="myform">
+            <label for="nombre">Nombre:</label>
+            <input type = "text" id = "nombre"/>
+            <br>
+            <br>
+            <label for="correo">Email:</label >
+            <input type = "email" id = "correo" required/>
+            <br>
+            <br>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id = "mensaje" rows="4" cols="58"></textarea>
+            <label for="test">Test:</label>
+            <input type = "range" id = "test" min ="0" max="120" value="58"/>
+            <br> 
+            <br>
+            <label for="test">Test:</label>
+            <input type = "date" id = "fecha"/>
+            <br>
+            <br>
+            <label for="hora">Test:</label>
+            <input type = "time" id = "hora"/>
+            <br>
+            <br>
+            <label for="mes">Test:</label>
+            <input type = "month" id = "mes"/>
+            <br>
+            <br>
+            <label for="week">Test:</label>
+            <input type = "week" id = "week"/>  
+            <br>
+            <br>
+            <label for="masc">Masculino</label>
+            <input type = "radio" id = "masc" name = "genero" value="nasc"/>
+            <label for="fem">Femenino</label>
+            <input type = "radio" id = "fem" name = "genero" value="nasc"/>
+            <br>
+            <br>
+            <select name="country" multiple>
+            <option value="">select a country</option>
+            <option value="">Argentina</option>
+            <option value="">Chile</option>
+            </select>
+            <input type="button" value="Click me" onclick="alert('Alerta de troyano')">
+            <input type="submit">
+        </form>
+        <script>
+            document.getElementById("myform").addEventListener("submit", function(event){
+                event.preventDefault();
+                const name = document.getElementById('nombre').value;
+                alert("Clickeo "+ name);
+            });
+        </script>
+    </body>
+</html>
