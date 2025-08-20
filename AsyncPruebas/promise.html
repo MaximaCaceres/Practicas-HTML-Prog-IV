@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <script>
+            async function p1()
+            {
+               return new Promise(resolve =>{
+                console.log("entra en promesa")
+                setTimeout(() => {
+                    console.log("dentro del timeout");
+                    console.log("otra promesa: . . .");
+                    return new Promise(resolve =>{
+                        console.log("otra promeda dentro de una promesa")
+                        /*simulacion de respuesta a de un servidor*/
+                        setTimeout(() =>{
+                            console.log("dentro del timeout de la otra promesa");
+                        })
+                    },300)
+                    
+                    /*simulacion real:
+                    async function fetchUserAndPosts() {
+                      const user = await fetch('/api/user');         // espera 1
+                        const posts = await fetch('/api/user/posts');  // espera 2, basada en la 1
+                        console.log("Datos cargados");
+                    } */
+                },500);
+                console.log("sale p1 " + new Date().getMilliseconds())
+                resolve(); /*el que resuelve*/
+               } )
+               await p1();    
+            }
+            console.log("antes "+ new Date().getMilliseconds());
+            p1();
+            console.log("///////////////////////////");
+            console.log("despues "+new Date().getMilliseconds());
+        </script>
+    </body>
+</html>
